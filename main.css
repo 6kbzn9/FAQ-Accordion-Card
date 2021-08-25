@@ -1,1 +1,123 @@
-/* font-family: 'Kumbh Sans', sans-serif; */
+:root {
+  --very-dark-blue: hsl(238, 29%, 16%);
+  --soft-red: hsl(14, 88%, 65%);
+  --light-blue: hsl(240, 5%, 91%);
+  --drkr-txt: hsl(237, 12%, 33%);
+  --drk-text: hsl(240, 6%, 50%);
+  --soft-violet: hsl(273, 75%, 66%);
+  --soft-blue: hsl(240, 73%, 65%);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background-image: linear-gradient(
+    to bottom,
+    var(--soft-violet),
+    var(--soft-blue)
+  );
+}
+
+.wrapper {
+  width: clamp(280px, 90%, 350px);
+  margin: 10rem auto 5rem;
+  position: relative;
+  background: #fff url(images/bg-pattern-mobile.svg) top center no-repeat;
+  border-radius: 1rem;
+  padding: 9rem 1.5rem 3.5rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.mobile {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-55%, -56%);
+}
+
+.title {
+  text-align: center;
+  color: var(--very-dark-blue);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  border-bottom: 1px solid var(--light-blue);
+  overflow: hidden;
+}
+
+.q-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0;
+}
+
+.question,
+.arrow {
+  cursor: pointer;
+  transition: 450ms ease-in-out;
+}
+
+.question {
+  color: var(--drk-text);
+  transition: 450ms ease-in-out;
+}
+
+.active .question {
+  color: var(--drkr-txt);
+  font-weight: 700;
+}
+.arrow {
+  margin-left: 1rem;
+}
+.active .arrow {
+  transform: rotate(180deg);
+}
+
+.question:hover {
+  color: var(--soft-red);
+}
+
+.a-wraper {
+  color: var(--drk-text);
+  height: 0;
+  transition: height 350ms ease-in-out;
+  overflow: hidden;
+}
+.active .a-wraper {
+  height: 100%;
+  transition-delay: 0ms;
+}
+
+.answer {
+  opacity: 0;
+  padding-bottom: 1.25rem;
+  transition: opacity 350ms ease-in-out;
+  transition-delay: 0ms;
+}
+.active .answer {
+  opacity: 1;
+}
+
+@media screen and (max-width: 350px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+.desktop {
+  display: none;
+}
